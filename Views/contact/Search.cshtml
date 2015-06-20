@@ -1,0 +1,53 @@
+﻿@model ledcity.Models.Led
+<form action="Search" method="post">
+
+    <div>
+        <label for="ItemName">Item Name</label>
+        <input type="text" class="form-control" id="iname" placeholder="Enter Item Name">
+    </div>
+
+    <button type="button" class="btn btn-default" id="b1" style="background-color:black; color:white; padding-top:1px; padding-bottom:1px;"><h4>GO</h4></button>
+
+    <div id="checking">Checking...</div>
+    <div id="result"></div>
+    @Scripts.Render("~/bundles/jquery")
+    <script>
+
+        $(document).ready(function () {
+
+            $('#checking').hide();
+
+            $('#b1').click(function () {
+
+                var IName = $('#iname').val();
+
+                $('#checking').show();
+
+                $.getJSON("/contact/SearchResults?item=" + IName, function (data) {
+                    $('#checking').hide();
+                    if (data.length > 0) {
+                        $('#result').clearQueue();
+                        var str = "<table class=\"table table-hover\"><tr>";
+                        for (var i = 0; i < data.length; i++) {
+
+                            str += "<tr><td>Brand:</td><td>" + data[i].Bname + "</td></tr>";
+                            str += "<tr><td>Model:</td><td>" + data[i].ModelNo + "</td></tr>";
+                            str += "<tr><td>Price:</td><td>" + data[i].Price + "</td></tr>";
+                            str += "<tr><td><img src=\"~/Files/" + data[i].Images + "\"width=\"250\" height=\"200\"></td></tr>";
+                        }
+                        str += "</tr></table>";
+                        $('#result').clearQueue(str);
+                        $('#result').append(str);
+
+                    }
+                    else {
+                        $('#result').text("No Data is available");
+                    }
+                });
+
+            });
+
+        });
+    </script>
+
+</form>

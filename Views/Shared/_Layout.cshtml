@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" class="full" lang="en">
+<head>
+    <title></title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.11.3.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <style>
+        body {
+            background-image: url("/Images/b3.jpg");
+        }
+    </style>
+</head>
+<body >
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="navbar-header">
+            <a href="/Home/Index" class="navbar-brand">LED CITY</a>
+        </div>
+
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/Home/Index">Home</a>
+            <li class="active"><a href="/Home/about">About</a></li>
+            <li class="active"><a href="/contact/contact">Contact us</a></li>
+            <li class="active"><a href="/contact/SignIn">Sign In</a></li>
+            <li class="active"><a href="/contact/Search">Search</a></li>
+
+           
+
+        </ul>
+
+
+        
+
+    </nav>
+    <div class="row">
+        <div class="col-md-2">
+            <div class="list-group">
+                <a href="#" class="list-group-item active" style="background-color:black;border-color:black">Categories</a>
+                <a href="/Models/Models" class="list-group-item" style="background-color: black;border-color: black">Models</a>
+                <a href="/Branded/Branded" class="list-group-item" style="background-color:black;border-color:black">Branded</a>
+
+            </div>
+        </div>
+        <div class="col-xs-10">
+
+            @RenderBody();
+        </div>
+
+    </div>
+
+        <div class="footer">
+
+            <p>&copy; Astute Graphics | Privacy | Terms</p>
+
+        </div>
+</body>
+</html>
+

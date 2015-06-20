@@ -1,0 +1,38 @@
+﻿@model List<ledcity.Models.Led>
+@{
+    Layout = "~/Views/Shared/Admin/_Layout.cshtml";
+}
+
+<h3>LEDs</h3>
+<div class="row text-center">
+    @foreach (var r in Model)
+    {
+        <div class="col-md-8 col-sm-6 hero-feature">
+            <div class="bs-docs-header" id="content" style="background-color:black; color:white; padding-top:20px; padding-bottom:20px;" tabindex="-1">
+            </div>
+
+            <table class="table table-hover">
+
+
+                <tr><td>Id:</td><td>@r.Id </td></tr>
+                <tr><td>Brand:</td><td>@r.Bname </td></tr>
+                <tr><td>Model No:</td><td>@r.ModelNo</td></tr>
+
+                <tr><td>Price:</td><td>@r.Price</td></tr>
+
+                <tr><td><img src="/Files/@r.Image" width="300" height="200" /></td></tr>
+
+            </table>
+        </div>
+
+
+    }
+    <div>
+        <form method="post" action="Del">
+            <label id="cus">Post ID: </label>
+
+            <input type="text" name="ID" id="ID" placeholder="Enter Post ID" />
+            <button type="submit" name="del" id="del"> Delete</button>
+        </form>
+    </div>
+</div>

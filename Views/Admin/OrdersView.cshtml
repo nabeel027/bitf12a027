@@ -1,0 +1,40 @@
+﻿@model List<ledcity.Models.CustOrder>
+@{
+    Layout = "~/Views/Shared/Admin/_Layout.cshtml";
+}
+
+<h3>All Customers</h3>
+<div class="table-responsive col-lg-6">
+    <table class="table table-hover">
+        <tr style="font-weight:bold">
+            <td>#  </td>
+            <td>  Model</td>
+            <td>  Email</td>
+            <td>  Quantity</td>
+            <td>  Size</td>
+        </tr>
+
+        @foreach (var r in Model)
+        {
+
+
+            <tr>
+                <td>@r.Id</td>
+                <td>@r.Model_No</td>
+                <td>@r.Email</td>
+                <td>@r.Quantity</td>
+                <td>@r.Size</td>
+            </tr>
+
+        }
+    </table>
+
+    <div>
+        <form method="post" action="DeleteORD">
+            <label id="cus">Order ID: </label>
+
+            <input type="text" name="ID" id="ID" placeholder="Enter Order ID" />
+            <button type="submit" name="del" id="del"> Delete</button>
+        </form>
+    </div>
+</div>
